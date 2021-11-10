@@ -38,23 +38,23 @@ public class Database extends SQLiteOpenHelper {
     }
 
 
-    Cursor readAllData(){
-        String query = "SELECT * FROM " + TABLE_NAME;
+    public Cursor readAllData(){
         SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor cursor = null;
-        if(db != null){
-            cursor = db.rawQuery(query, null);
-        }
+        String query = "SELECT * FROM " + TABLE_NAME;
+        Cursor cursor = db.rawQuery(query,null);
         return cursor;
     }
 
     void addStudent(String Student){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-
         cv.put(FIO, Student);
         long result = db.insert(TABLE_NAME,null, cv);
+        if(result == -1){
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
+        }
     }
     void deleteOneRow(String row_id){
         SQLiteDatabase db = this.getWritableDatabase();
