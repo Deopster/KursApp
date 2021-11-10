@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         list = findViewById(R.id.Students);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        db = new Database(this);
         listitem = new ArrayList<>();
         storeDataInArrays();
         setSupportActionBar(binding.appBarMain.toolbar);

@@ -49,7 +49,7 @@ public class Database extends SQLiteOpenHelper {
         return cursor;
     }
 
-    void addBook(String Student){
+    void addStudent(String Student){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
