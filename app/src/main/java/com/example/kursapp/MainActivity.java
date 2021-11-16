@@ -21,13 +21,14 @@ import com.example.kursapp.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
-
+    static DatabaseAdapter databaseAdapter;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        PreCreateDB.copyDB(this);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -44,8 +45,7 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-        setContentView(R.layout.activity_main);
-        PreCreateDB.copyDB(this);
+        setContentView(R.layout.fragment_gallery);
         databaseAdapter = new DatabaseAdapter(this);
         ListView lvContact = findViewById(R.id.lvContact);
         final SimpleCursorAdapter simpleCursorAdapter = databaseAdapter.populateListViewFromDB();
