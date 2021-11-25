@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
     android:background="@drawable/side_nav_bar"
@@ -13,24 +14,52 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/Getlogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="имя студента / почта"
+        android:hint="Имя пользователя"
         android:inputType="textEmailAddress" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/GetPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Пароль"
         android:inputType="textPassword" />
 
+    <LinearLayout
+        android:id="@+id/block"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        tools:visibility="visible">
+
+        <Button
+            android:id="@+id/logIN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Log"
+            android:paddingLeft="5dp"
+            android:text="Войти" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:onClick="reg1"
+            android:paddingLeft="5dp"
+            android:text="регистрация" />
+    </LinearLayout>
+
     <Button
-        android:id="@+id/button"
+        android:id="@+id/logOut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Войти" />
+        android:onClick="out"
+        android:text="выйти"
+        tools:visibility="visible" />
+
 </LinearLayout>
